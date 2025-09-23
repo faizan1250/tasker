@@ -4,8 +4,6 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:frontend": "turbo run dev --filter=apps/frontend... -- --host 0.0.0.0",
-    "dev:no-frontend": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/frontend",
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
     "lint": "turbo run lint",
@@ -18,8 +16,7 @@
     "node": ">=22"
   },
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "packages/*"
   ],
   "devDependencies": {
     "turbo": "^2.5.6",
