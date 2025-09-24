@@ -1,10 +1,13 @@
 package repository
 
+import "github.com/faizan1250/tasker/internal/server"
 
-import "github.com/faizan1250/go-boilerplate/internal/server"
-
-type Repositories struct{}
+type Repositories struct {
+	Todo *TodoRepository
+}
 
 func NewRepositories(s *server.Server) *Repositories {
-	return &Repositories{}
+	return &Repositories{
+		Todo: NewTodoRepository(s),
+	}
 }

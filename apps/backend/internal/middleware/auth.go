@@ -7,9 +7,9 @@ import (
 
 	"github.com/clerk/clerk-sdk-go/v2"
 	clerkhttp "github.com/clerk/clerk-sdk-go/v2/http"
+	"github.com/faizan1250/tasker/internal/errs"
+	"github.com/faizan1250/tasker/internal/server"
 	"github.com/labstack/echo/v4"
-	"github.com/faizan1250/go-boilerplate/internal/errs"
-	"github.com/faizan1250/go-boilerplate/internal/server"
 )
 
 type AuthMiddleware struct {

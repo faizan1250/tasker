@@ -7,13 +7,13 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/faizan1250/tasker/internal/config"
+	"github.com/faizan1250/tasker/internal/database"
+	"github.com/faizan1250/tasker/internal/lib/job"
+	loggerPkg "github.com/faizan1250/tasker/internal/logger"
 	"github.com/newrelic/go-agent/v3/integrations/nrredis-v9"
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/zerolog"
-	"github.com/faizan1250/go-boilerplate/internal/config"
-	"github.com/faizan1250/go-boilerplate/internal/database"
-	"github.com/faizan1250/go-boilerplate/internal/lib/job"
-	loggerPkg "github.com/faizan1250/go-boilerplate/internal/logger"
 )
 
 type Server struct {

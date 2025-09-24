@@ -1,15 +1,14 @@
 package validation
 
-
 import (
 	"fmt"
 	"reflect"
 	"regexp"
 	"strings"
 
+	"github.com/faizan1250/tasker/internal/errs"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
-	"github.com/faizan1250/go-boilerplate/internal/errs"
 )
 
 type Validatable interface {

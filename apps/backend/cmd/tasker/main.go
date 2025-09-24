@@ -8,14 +8,14 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/faizan1250/go-boilerplate/internal/config"
-	"github.com/faizan1250/go-boilerplate/internal/database"
-	"github.com/faizan1250/go-boilerplate/internal/handler"
-	"github.com/faizan1250/go-boilerplate/internal/logger"
-	"github.com/faizan1250/go-boilerplate/internal/repository"
-	"github.com/faizan1250/go-boilerplate/internal/router"
-	"github.com/faizan1250/go-boilerplate/internal/server"
-	"github.com/faizan1250/go-boilerplate/internal/service"
+	"github.com/faizan1250/tasker/internal/config"
+	"github.com/faizan1250/tasker/internal/database"
+	"github.com/faizan1250/tasker/internal/handler"
+	"github.com/faizan1250/tasker/internal/logger"
+	"github.com/faizan1250/tasker/internal/repository"
+	"github.com/faizan1250/tasker/internal/router"
+	"github.com/faizan1250/tasker/internal/server"
+	"github.com/faizan1250/tasker/internal/service"
 )
 
 const DefaultContextTimeout = 30
