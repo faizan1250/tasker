@@ -28,7 +28,7 @@ func (p *CreateTodoPayload) Validate() error {
 
 type UpdateTodoPayload struct {
 	ID           uuid.UUID  `param:"id" validate:"required,uuid"`
-	Title        string     `json:"title" validate:"required,min=1,max=255"`
+	Title        *string    `json:"title" validate:"required,min=1,max=255"`
 	Description  *string    `json:"description" validate:"omitempty,max=1000"`
 	Status       *Status    `json:"status" validate:"omitempty, oneof =draft active completed archived"`
 	Priority     *Priority  `json:"priority" validate:"omitempty, oneof=low medium high"`
@@ -111,9 +111,9 @@ func (p *DeleteTodoPayload) Validate() error {
 
 // ---------------------------------------------------
 
-type GetTodoStats struct {
+type GetTodoStatsPayload struct {
 }
 
-func (p *GetTodoStats) Validate() error {
+func (p *GetTodoStatsPayload) Validate() error {
 	return nil
 }

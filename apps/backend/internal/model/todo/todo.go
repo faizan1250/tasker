@@ -4,6 +4,8 @@ import (
 	"time"
 
 	"github.com/faizan1250/tasker/internal/model"
+	"github.com/faizan1250/tasker/internal/model/category"
+	"github.com/faizan1250/tasker/internal/model/comment"
 	"github.com/google/uuid"
 )
 
@@ -33,8 +35,8 @@ type Todo struct {
 	Priority     Priority   `json:"priority" db:"priority"`
 	DueDate      *time.Time `json:"dueDate" db:"due_date"`
 	CompletedAt  *time.Time `json:"completedAt" db:"completed_at"`
-	ParentTodoId *uuid.UUID `json:"parentTodoId" db:"parent_todo_id"`
-	CategoryId   *uuid.UUID `json:"categoryId" db:"category_id"`
+	ParentTodoID *uuid.UUID `json:"parentTodoId" db:"parent_todo_id"`
+	CategoryID   *uuid.UUID `json:"categoryId" db:"category_id"`
 	Metadata     *Metadata  `json:"metadata" db:"metadata"`
 	SortOrder    int        `json:"sortOrder" db:"sort_order"`
 }
@@ -43,4 +45,28 @@ type Metadata struct {
 	Remainder   *string  `json:"remainder"`
 	Color       *string  `json:"color"`
 	Difficculty *int     `json:"difficulty"`
+}
+
+type PopulatedTodo struct {
+	Todo
+	Category *category.Category `json:"category" db:"category"`
+	Children []Todo             `json:"children" db:"children"`
+	Comments []comment.Comment  `json:"comments" db:"comments"`
+}
+
+type TodoStats struct {
+	Total     int `json:"total"`
+	Draft     int `json:"draft"`
+	Active    int `json:"active"`
+	Completed int `json:"completed"`
+	Archived  int `json:"archived"`
+	Overdue   int `json:"overdue"`
+}
+
+func (t *Todo) IsOverdue() bool {
+	return t.DueDate != nil && t.DueDate.Before(time.Now()) && t.Status != StatusCompleted
+}
+
+func (t *Todo) CanHaveChildren() bool {
+	return t.ParentTodoID == nil
 }
